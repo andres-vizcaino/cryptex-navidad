@@ -17,6 +17,7 @@ const Column = ({ update, rows }: Props) => {
     const pop: string = copy.pop()!;
     copy.unshift(pop);
     setItems(copy);
+    update(copy[1]);
   };
 
   const shiftDown = () => {
@@ -24,6 +25,7 @@ const Column = ({ update, rows }: Props) => {
     const shift: string = copy.shift()!;
     copy.push(shift);
     setItems(copy);
+    update(copy[1]);
   };
 
   return (
@@ -46,17 +48,19 @@ const Column = ({ update, rows }: Props) => {
         >
           {ArrowDownCircle}
         </button>
-        {items.map((item, index) => (
-          <div
-            key={item}
-            className={`w-6 h-6 m-1 mb-1 bg-yellow-50 select-none font-bold rounded ${
-              index === 1 ? "bg-green-300" : ""
-            }`}
-            style={{ transition: "all 0.2s ease" }}
-          >
-            {item}
-          </div>
-        ))}
+        {items.map((item, index) => {
+          return (
+            <div
+              key={item}
+              className={`w-6 h-6 m-1 mb-1 bg-yellow-50 select-none font-bold rounded ${
+                index === 1 ? "bg-green-300" : ""
+              }`}
+              style={{ transition: "all 0.2s ease" }}
+            >
+              {item}
+            </div>
+          );
+        })}
       </div>
     </>
   );
