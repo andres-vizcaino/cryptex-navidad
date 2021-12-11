@@ -17,6 +17,7 @@ function App() {
       <h1 className="absolute top-20 text-4xl text-gray-50">
         Reto Navideño - Vizcaíno
       </h1>
+      <h4 className="absolute top-32 text-gray-50">Adivina la palabra oculta y recibe un premio sopresa 🚀</h4>
 
       <Cryptex config={config} confetti={startConfetti} /> 
       <ToastContainer
